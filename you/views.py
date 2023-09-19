@@ -20,8 +20,8 @@ def index(request):
         cat = category.objects.all()
         return render(request, 'index.html', {'category': cat})
     else:
-        #return render(request,'test.html') For My Love
-        return render(request,'index.html')
+        cat = category.objects.all()
+        return render(request, 'index.html', {'category': cat})
 
 
 
