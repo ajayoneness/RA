@@ -5,6 +5,39 @@
 {% load static %}
     {% block content %}
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        .boxxx{
+
+            border-radius:10px;
+            transition : 1s;
+
+        }
+
+        .boxxx i{
+            color :white;
+            transition : 1s;
+        }
+
+        .boxxx p{
+            cursor: pointer;
+        }
+
+        .boxxx:hover{
+            background-color : rgba(255,0,0,0.1);
+        }
+
+        .boxxx:hover i{
+            color :red;
+            cursor: pointer;
+
+
+        }
+
+    </style>
+
+
     <div class="page-heading">
         <div class="container">
             <div class="heading-content">
@@ -27,18 +60,33 @@
                                     <span><a href="#">CodeAj</a> / <a href="#">1 September 2023</a> / <a href="#">Love</a></span>
 
                                     <p>{{quotes.0.category.longdecription}}<p>
-                                    <ul style="color:white;">
-                                    {% for quote in quotes %}
 
-                                        <li>{{quote.quote}}</li>
+                                    <br>
 
-                                    {% endfor %}
-                                    </ul>
+                                    <div class="row">
+
+                                        {% for quote in quotes %}
+                                        <div class="col-md-6 col-lg-4 col-sm-12  " style="margin-bottom:10px;" >
+                                            <div class=" boxxx" style="border:2px solid white; padding: 20px;">
+                                                <i style="font-size: 30px;" class="fa-solid fa-heart"></i>
+                                                <p>
+                                                    {{quote.quote}}
+                                                </p>
+                                            </div>
+                                        </div>
+                                        {% endfor %}
+
+                                    </div>
+
+
+
 
 
                                     <br><br><a href="{% url 'index' %}">Back to Blog</a></p>
                                     <div class="tags-share">
                                         <div class="row">
+
+
 <!--                                            <div class="col-md-6">-->
 <!--                                                <ul class="tags">-->
 <!--                                                    <li>Tags:</li>-->
@@ -47,6 +95,8 @@
 <!--                                                    <li><a href="#">life is good</a></li>-->
 <!--                                                </ul>-->
 <!--                                            </div>-->
+
+
                                             <div class="col-md-6">
                                                 <ul class="share">
                                                     <li>Share:</li>
@@ -112,16 +162,24 @@
 <!--                            </li></a>-->
 <!--                        </ul>-->
 <!--                    </div>-->
+
+
                     <div class="categories">
                         <div class="sidebar-heding">
                             <h2>Categories</h2>
                         </div>
                         <ul>
                             {% for cat in categories %}
-                            <li><a href="/singlepage/{{cat.slug}}">> {{cat.name}}</a></li>
+                            <li><a href="/singlepage/{{cat.slug}}">> {{cat.name}} {{cat.lastname}}</a></li>
+
                             {% endfor %}
                         </ul>
                     </div>
+
+
+
+
+
 <!--                    <div class="latest-gallery">-->
 <!--                        <div class="sidebar-heding">-->
 <!--                            <h2>Latest Gallery</h2>-->
@@ -137,6 +195,7 @@
 <!--                            <li><a href="#"></a><img src="{% static 'img/latest_gallery_8.png' %}" alt=""></a></li>-->
 <!--                        </ul>-->
 <!--                    </div>-->
+
                 </div>
             </div>
         </div>

@@ -1,20 +1,17 @@
 import os
-
 from pathlib import Path
-
+from .views import custom_404_view
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
+# Use a custom 404 view function
+handler404 = 'views.custom_404_view'
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-t(z7ukhs+%8e8*met#$_948ozo0rc6qdhwj0i#0h602fpl8fv='
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 

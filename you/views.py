@@ -2,8 +2,10 @@ from django.shortcuts import render
 from .models import category,quotes,contactform
 
 
-def index(request):
 
+
+
+def index(request):
     if request.method == "POST":
         try:
             name= request.POST['ra']
@@ -12,18 +14,14 @@ def index(request):
             form_name = request.POST['name']
             form_email = request.POST['email']
             form_message = request.POST['message']
-
             contactform(name=form_name,email=form_email, message=form_message).save()
-
-
-
-
 
     if request.session.get('stored_text', '') == 'radha':
         cat = category.objects.all()
         return render(request, 'index.html', {'category': cat})
     else:
-        return render(request,'test.html')
+        #return render(request,'test.html') For My Love
+        return render(request,'index.html')
 
 
 
