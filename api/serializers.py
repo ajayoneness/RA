@@ -10,3 +10,10 @@ class QuotesSerializer(serializers.ModelSerializer):
     class Meta:
         model = quotes
         fields = '__all__'
+
+
+class QuoteSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = quotes
+        fields = '__all__'
+

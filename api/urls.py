@@ -6,4 +6,5 @@ urlpatterns = [
     path('categories/<int:pk>/', views.CategoryDetailView.as_view(), name='category-detail'),
     path('quotes/', views.QuotesListCreateView.as_view(), name='quotes-list-create'),
     path('quotes/<int:pk>/', views.QuotesDetailView.as_view(), name='quotes-detail'),
+    path('quotes/by_category/<int:category_id>/', views.quotes_by_category, name='quotes_by_category'),
 ]
